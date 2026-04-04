@@ -264,7 +264,10 @@ export function closeModal() {
   const isMobile = window.innerWidth < 768;
   if (isMobile && panel) {
     panel.classList.add('modal-panel--closing');
+    // Fallback-Timer falls animationend nicht feuert (prefers-reduced-motion, Tab-Wechsel etc.)
+    const fallback = setTimeout(_doClose, 300);
     panel.addEventListener('animationend', () => {
+      clearTimeout(fallback);
       _doClose();
     }, { once: true });
     return;
