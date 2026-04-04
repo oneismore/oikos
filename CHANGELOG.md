@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-04-04
+
+### Added
+- Persist task view mode (list/kanban) across sessions via localStorage (#17)
+- Support URL parameter `?view=kanban` to open tasks directly in Kanban view - ideal for tablet kiosk setups
+- View toggle button reflects the persisted/URL-driven view on page load
+
 ## [0.9.0] - 2026-04-04
 
 ### Added

@@ -356,7 +356,7 @@ let state = {
   users:         [],
   filters:       { status: '', priority: '', assigned_to: '' },
   groupMode:     'category',   // 'category' | 'due'
-  viewMode:      'list',       // 'list' | 'kanban'
+  viewMode:      'list',       // 'list' | 'kanban' (resolved at render time)
   expandedTasks: new Set(),
   dragTaskId:    null,
 };
@@ -872,6 +872,7 @@ function wireViewToggle(container) {
   toggle.querySelectorAll('[data-view]').forEach((btn) => {
     btn.addEventListener('click', () => {
       state.viewMode = btn.dataset.view;
+      localStorage.setItem('oikos-tasks-view', state.viewMode);
       toggle.querySelectorAll('[data-view]').forEach((b) =>
         b.classList.toggle('group-toggle__btn--active', b.dataset.view === state.viewMode)
       );
@@ -962,23 +963,32 @@ function wireTaskList(container) {
 // --------------------------------------------------------
 
 export async function render(container, { user }) {
-  // Initiales Skeleton
+  // View-Mode: URL-Parameter > localStorage > Default 'list'
+  const urlView = new URLSearchParams(window.location.search).get('view');
+  const savedView = localStorage.getItem('oikos-tasks-view');
+  state.viewMode = (urlView === 'kanban' || urlView === 'list') ? urlView
+    : (savedView === 'kanban' || savedView === 'list') ? savedView
+    : 'list';
+
+  const isKanban = state.viewMode === 'kanban';
+
+  // Initiales Skeleton (all values are from i18n keys or hardcoded constants, no user data)
   container.innerHTML = `
     <div class="tasks-page">
       <div class="tasks-toolbar">
         <h1 class="tasks-toolbar__title">${t('tasks.title')}</h1>
         <div class="tasks-toolbar__actions">
           <div class="group-toggle" id="view-toggle">
-            <button class="group-toggle__btn group-toggle__btn--active" data-view="list"
+            <button class="group-toggle__btn ${isKanban ? '' : 'group-toggle__btn--active'}" data-view="list"
                     title="${t('tasks.listView')}" aria-label="${t('tasks.listView')}">
               <i data-lucide="list" style="width:14px;height:14px;pointer-events:none" aria-hidden="true"></i>
             </button>
-            <button class="group-toggle__btn" data-view="kanban"
+            <button class="group-toggle__btn ${isKanban ? 'group-toggle__btn--active' : ''}" data-view="kanban"
                     title="${t('tasks.kanbanView')}" aria-label="${t('tasks.kanbanView')}">
               <i data-lucide="columns" style="width:14px;height:14px;pointer-events:none" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="group-toggle" id="group-mode-toggle">
+          <div class="group-toggle" id="group-mode-toggle" ${isKanban ? 'style="display:none"' : ''}>
             <button class="group-toggle__btn group-toggle__btn--active" data-mode="category">${t('tasks.categoryLabel')}</button>
             <button class="group-toggle__btn" data-mode="due">${t('tasks.dueDateLabel')}</button>
           </div>
