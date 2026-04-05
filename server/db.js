@@ -355,6 +355,13 @@ const MIGRATIONS = [
         ('Sonstiges',        'shopping-basket', 8);
     `,
   },
+  {
+    version: 6,
+    description: 'Rezept-URL für Mahlzeiten',
+    up: `
+      ALTER TABLE meals ADD COLUMN recipe_url TEXT;
+    `,
+  },
 ];
 
 /**

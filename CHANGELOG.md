@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-04-05
+
+### Added
+- Meals: optional recipe link per meal - add a URL in the meal modal and a link icon appears on the card for one-tap access to the recipe (#18)
+- Meals: `recipe_url` field stored in the database (migration v6)
+
 ## [0.12.0] - 2026-04-05
 
 ### Added

@@ -151,19 +151,20 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   try {
     const { ingredients = [] } = req.body;
-    const vDate  = date(req.body.date, 'Datum', true);
-    const vType  = oneOf(req.body.meal_type, VALID_MEAL_TYPES, 'Mahlzeit-Typ');
-    const vTitle = str(req.body.title, 'Titel', { max: MAX_TITLE });
-    const vNotes = str(req.body.notes, 'Notizen', { max: MAX_TEXT, required: false });
-    const errors = collectErrors([vDate, vType, vTitle, vNotes]);
+    const vDate       = date(req.body.date, 'Datum', true);
+    const vType       = oneOf(req.body.meal_type, VALID_MEAL_TYPES, 'Mahlzeit-Typ');
+    const vTitle      = str(req.body.title, 'Titel', { max: MAX_TITLE });
+    const vNotes      = str(req.body.notes, 'Notizen', { max: MAX_TEXT, required: false });
+    const vRecipeUrl  = str(req.body.recipe_url, 'Rezept-URL', { max: MAX_TEXT, required: false });
+    const errors = collectErrors([vDate, vType, vTitle, vNotes, vRecipeUrl]);
     if (!req.body.meal_type) errors.push('Mahlzeit-Typ ist erforderlich.');
     if (errors.length) return res.status(400).json({ error: errors.join(' '), code: 400 });
 
     const meal = db.transaction(() => {
       const result = db.get().prepare(`
-        INSERT INTO meals (date, meal_type, title, notes, created_by)
-        VALUES (?, ?, ?, ?, ?)
-      `).run(vDate.value, vType.value, vTitle.value, vNotes.value, req.session.userId);
+        INSERT INTO meals (date, meal_type, title, notes, recipe_url, created_by)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(vDate.value, vType.value, vTitle.value, vNotes.value, vRecipeUrl.value, req.session.userId);
 
       const mealId = result.lastInsertRowid;
 
@@ -210,25 +211,28 @@ router.put('/:id', (req, res) => {
     if (!meal) return res.status(404).json({ error: 'Mahlzeit nicht gefunden', code: 404 });
 
     const checks = [];
-    if (req.body.date      !== undefined) checks.push(date(req.body.date, 'Datum'));
-    if (req.body.meal_type !== undefined) checks.push(oneOf(req.body.meal_type, VALID_MEAL_TYPES, 'Mahlzeit-Typ'));
-    if (req.body.title     !== undefined) checks.push(str(req.body.title, 'Titel', { max: MAX_TITLE, required: false }));
-    if (req.body.notes     !== undefined) checks.push(str(req.body.notes, 'Notizen', { max: MAX_TEXT, required: false }));
+    if (req.body.date       !== undefined) checks.push(date(req.body.date, 'Datum'));
+    if (req.body.meal_type  !== undefined) checks.push(oneOf(req.body.meal_type, VALID_MEAL_TYPES, 'Mahlzeit-Typ'));
+    if (req.body.title      !== undefined) checks.push(str(req.body.title, 'Titel', { max: MAX_TITLE, required: false }));
+    if (req.body.notes      !== undefined) checks.push(str(req.body.notes, 'Notizen', { max: MAX_TEXT, required: false }));
+    if (req.body.recipe_url !== undefined) checks.push(str(req.body.recipe_url, 'Rezept-URL', { max: MAX_TEXT, required: false }));
     const errors = collectErrors(checks);
     if (errors.length) return res.status(400).json({ error: errors.join(' '), code: 400 });
 
     db.get().prepare(`
       UPDATE meals
-      SET date      = COALESCE(?, date),
-          meal_type = COALESCE(?, meal_type),
-          title     = COALESCE(?, title),
-          notes     = ?
+      SET date       = COALESCE(?, date),
+          meal_type  = COALESCE(?, meal_type),
+          title      = COALESCE(?, title),
+          notes      = ?,
+          recipe_url = ?
       WHERE id = ?
     `).run(
       req.body.date      ?? null,
       req.body.meal_type ?? null,
       req.body.title?.trim() ?? null,
-      req.body.notes !== undefined ? (req.body.notes || null) : meal.notes,
+      req.body.notes       !== undefined ? (req.body.notes || null)       : meal.notes,
+      req.body.recipe_url  !== undefined ? (req.body.recipe_url || null)  : meal.recipe_url,
       id
     );
 

@@ -234,7 +234,10 @@
     "ingredientCount": "{{count}} ingredient",
     "ingredientCountPlural": "{{count}} ingredients",
     "titleRequired": "Title is required",
-    "loadingIndicator": "Loading…"
+    "loadingIndicator": "Loading…",
+    "recipeUrlLabel": "Recipe link (optional)",
+    "recipeUrlPlaceholder": "https://…",
+    "openRecipe": "Open recipe"
   },
 
   "calendar": {

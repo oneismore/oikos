@@ -234,7 +234,10 @@
     "ingredientCount": "{{count}} ingrediens",
     "ingredientCountPlural": "{{count}} ingredienser",
     "titleRequired": "Titel krävs",
-    "loadingIndicator": "Laddar…"
+    "loadingIndicator": "Laddar…",
+    "recipeUrlLabel": "Receptlänk (valfri)",
+    "recipeUrlPlaceholder": "https://…",
+    "openRecipe": "Öppna recept"
   },
 
   "calendar": {

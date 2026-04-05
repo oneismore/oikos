@@ -266,6 +266,14 @@
   color: var(--color-success);
 }
 
+.meal-card__action-btn--recipe {
+  text-decoration: none;
+}
+
+.meal-card__action-btn--recipe:hover {
+  color: var(--color-accent);
+}
+
 /* --------------------------------------------------------
  * Meals-Modal Content-Styles (Overlay/Panel via shared modal.js)
  * -------------------------------------------------------- */
