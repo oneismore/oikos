@@ -6,7 +6,7 @@
 
 import { api } from '/api.js';
 import { renderRRuleFields, bindRRuleEvents, getRRuleValues } from '/rrule-ui.js';
-import { openModal as openSharedModal, closeModal, wireBlurValidation, btnSuccess, btnError, promptModal, confirmModal } from '/components/modal.js';
+import { openModal as openSharedModal, closeModal, wireBlurValidation, validateAll, btnSuccess, btnError, promptModal, confirmModal } from '/components/modal.js';
 import { stagger, vibrate } from '/utils/ux.js';
 import { t, formatDate } from '/i18n.js';
 import { esc } from '/utils/html.js';
@@ -429,6 +429,9 @@ async function handleFormSubmit(e, container) {
   const errorEl   = document.getElementById('task-form-error');
   const submitBtn = document.getElementById('task-submit-btn');
   const taskId    = document.getElementById('task-id').value;
+
+  // Alle required-Felder sofort validieren (auch unberührte)
+  if (!validateAll(form)) return;
 
   errorEl.hidden = true;
   submitBtn.disabled = true;

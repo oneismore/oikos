@@ -484,19 +484,43 @@ export function confirmModal(message, { confirmLabel, danger = false } = {}) {
 // Inline Blur-Validierung
 // --------------------------------------------------------
 
+function _validateField(input) {
+  const group = input.closest('.form-field') ?? input.parentElement;
+  const hasValue = input.value.trim().length > 0;
+  group?.classList.toggle('form-field--error', !hasValue);
+  group?.classList.toggle('form-field--valid', hasValue);
+  return hasValue;
+}
+
 /**
  * Aktiviert Blur-Validierung für alle required-Inputs in einem Container.
  * @param {HTMLElement} formContainer
  */
 export function wireBlurValidation(formContainer) {
   formContainer.querySelectorAll('input[required], select[required], textarea[required]').forEach((input) => {
-    input.addEventListener('blur', () => {
-      const group = input.closest('.form-field') ?? input.parentElement;
-      const hasValue = input.value.trim().length > 0;
-      group?.classList.toggle('form-field--error', !hasValue);
-      group?.classList.toggle('form-field--valid', hasValue);
-    });
+    input.addEventListener('blur', () => _validateField(input));
   });
+}
+
+/**
+ * Validiert alle required-Inputs sofort (z.B. beim Submit ohne vorangehendes Blur).
+ * Markiert Fehler inline und fokussiert das erste ungültige Feld.
+ *
+ * @param {HTMLElement} formContainer
+ * @returns {boolean} true wenn alle Felder valide sind
+ */
+export function validateAll(formContainer) {
+  let firstInvalid = null;
+  let allValid = true;
+
+  formContainer.querySelectorAll('input[required], select[required], textarea[required]').forEach((input) => {
+    const valid = _validateField(input);
+    if (!valid && !firstInvalid) firstInvalid = input;
+    if (!valid) allValid = false;
+  });
+
+  if (firstInvalid) firstInvalid.focus();
+  return allValid;
 }
 
 // --------------------------------------------------------

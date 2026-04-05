@@ -55,8 +55,11 @@ class OikosLocalePicker extends HTMLElement {
 
     select.addEventListener('change', () => {
       if (select.value === 'system') {
+        select.disabled = true;
+        select.style.opacity = '0.5';
         localStorage.removeItem('oikos-locale');
-        location.reload();
+        // Kurze Verzögerung damit der Browser den disabled-Zustand rendert
+        setTimeout(() => location.reload(), 60);
       } else {
         setLocale(select.value);
       }
