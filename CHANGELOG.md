@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-04-06
+
+### Added
+- Settings: categorized tab navigation - six tabs (General, Meals, Budget, Shopping, Calendar, Account) replace the flat scrolling layout (#30)
+- Settings: active tab persists across page navigations via sessionStorage
+- Settings: Calendar tab is automatically activated when returning from a Google/Apple OAuth callback
+- Settings: tab bar is sticky so it stays visible while scrolling through tab content
+- Settings: all tab labels fully translated in de, en, es, it, sv
+
 ## [0.15.0] - 2026-04-06
 
 ### Changed

@@ -30,7 +30,6 @@
     "confirm": "Bekräfta",
     "undo": "Ångra"
   },
-
   "nav": {
     "dashboard": "Översikt",
     "tasks": "Uppgifter",
@@ -45,7 +44,6 @@
     "navigation": "Navigering",
     "quickActions": "Snabba åtgärder"
   },
-
   "dashboard": {
     "title": "Översikt",
     "greetingMorning": "God morgon, {{name}}",
@@ -81,7 +79,6 @@
     "allDay": "Hela dagen",
     "shoppingMore": "+{{count}} till"
   },
-
   "tasks": {
     "title": "Uppgifter",
     "newTask": "Ny uppgift",
@@ -149,7 +146,6 @@
     "listView": "Listvy",
     "kanbanView": "Kanban-vy"
   },
-
   "shopping": {
     "title": "Shopping",
     "noLists": "Inga listor",
@@ -190,7 +186,6 @@
     "catDrugstore": "Apotek",
     "catMisc": "Diverse"
   },
-
   "meals": {
     "title": "Måltidsplan",
     "noMealPlanned": "Ingen måltid planerad",
@@ -239,7 +234,6 @@
     "recipeUrlPlaceholder": "https://…",
     "openRecipe": "Öppna recept"
   },
-
   "calendar": {
     "title": "Kalender",
     "newEvent": "Ny händelse",
@@ -272,7 +266,7 @@
     "locationPlaceholder": "Frivillig",
     "assignedLabel": "Tilldelad till",
     "assignedNobody": "- Ingen -",
-    "colorLabel": "Färg",
+    "colorLabel": "Färg {{color}}",
     "descriptionLabel": "Beskrivning",
     "descriptionPlaceholder": "Frivillig…",
     "popupEdit": "Redigera",
@@ -310,10 +304,8 @@
     "dayLongThursday": "Torsdag",
     "dayLongFriday": "Fredag",
     "dayLongSaturday": "Lördag",
-    "timeSuffix": "",
-    "colorLabel": "Färg {{color}}"
+    "timeSuffix": ""
   },
-
   "notes": {
     "title": "Anteckningar",
     "newNote": "Ny anteckning",
@@ -352,7 +344,6 @@
     "formatQuote": "Citationstecken",
     "formatDivider": "Delare"
   },
-
   "contacts": {
     "title": "Kontakter",
     "newContact": "Ny kontakt",
@@ -406,7 +397,6 @@
     "categoryEmergency": "Nödsituation",
     "categoryOther": "Andra"
   },
-
   "budget": {
     "title": "Budget",
     "newEntry": "Nytt inlägg",
@@ -454,9 +444,15 @@
     "catMisc": "Diverse",
     "loadingIndicator": "Laddar…"
   },
-
   "settings": {
     "title": "Inställningar",
+    "tabGeneral": "Allmänt",
+    "tabMeals": "Måltider",
+    "tabBudget": "Budget",
+    "tabShopping": "Inköp",
+    "tabCalendar": "Kalender",
+    "tabAccount": "Konto",
+    "tabsAriaLabel": "Inställningsavsnitt",
     "sectionDesign": "Utseende",
     "sectionShopping": "Inköp",
     "shoppingCategoriesLabel": "Inköpskategorier",
@@ -547,7 +543,6 @@
     "currencyHint": "Ställer in valutan som används i hela budgetavsnittet.",
     "currencySaved": "Valuta sparad."
   },
-
   "login": {
     "tagline": "Familjeplanering. Säker. Sekretessvänlig. Öppen källkod.",
     "usernameLabel": "Användarnamn",
@@ -559,7 +554,6 @@
     "tooManyAttempts": "För många försök. Vänta ett ögonblick.",
     "invalidCredentials": "Ogiltiga användaruppgifter."
   },
-
   "install": {
     "title": "Installera Oikos",
     "subtitle": "Lägg till på startskärmen",
@@ -568,11 +562,9 @@
     "installButton": "Installera",
     "dismissLabel": "Stäng"
   },
-
   "modal": {
     "closeLabel": "Stäng"
   },
-
   "rrule": {
     "freqNone": "Ingen upprepning",
     "freqDaily": "Dagligen",

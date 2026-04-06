@@ -30,7 +30,6 @@
     "confirm": "Confirm",
     "undo": "Undo"
   },
-
   "nav": {
     "dashboard": "Overview",
     "tasks": "Tasks",
@@ -45,7 +44,6 @@
     "navigation": "Navigation",
     "quickActions": "Quick actions"
   },
-
   "dashboard": {
     "title": "Overview",
     "greetingMorning": "Good morning, {{name}}",
@@ -81,7 +79,6 @@
     "allDay": "All day",
     "shoppingMore": "+{{count}} more"
   },
-
   "tasks": {
     "title": "Tasks",
     "newTask": "New Task",
@@ -149,7 +146,6 @@
     "listView": "List view",
     "kanbanView": "Kanban view"
   },
-
   "shopping": {
     "title": "Shopping",
     "noLists": "No lists",
@@ -190,7 +186,6 @@
     "catDrugstore": "Drugstore",
     "catMisc": "Miscellaneous"
   },
-
   "meals": {
     "title": "Meal Plan",
     "noMealPlanned": "No meal planned",
@@ -239,7 +234,6 @@
     "recipeUrlPlaceholder": "https://…",
     "openRecipe": "Open recipe"
   },
-
   "calendar": {
     "title": "Calendar",
     "newEvent": "New Event",
@@ -272,7 +266,7 @@
     "locationPlaceholder": "Optional",
     "assignedLabel": "Assigned to",
     "assignedNobody": "- Nobody -",
-    "colorLabel": "Color",
+    "colorLabel": "Color {{color}}",
     "descriptionLabel": "Description",
     "descriptionPlaceholder": "Optional…",
     "popupEdit": "Edit",
@@ -310,10 +304,8 @@
     "dayLongThursday": "Thursday",
     "dayLongFriday": "Friday",
     "dayLongSaturday": "Saturday",
-    "timeSuffix": "",
-    "colorLabel": "Color {{color}}"
+    "timeSuffix": ""
   },
-
   "notes": {
     "title": "Board",
     "newNote": "New Note",
@@ -352,7 +344,6 @@
     "formatQuote": "Quote",
     "formatDivider": "Divider"
   },
-
   "contacts": {
     "title": "Contacts",
     "newContact": "New Contact",
@@ -406,7 +397,6 @@
     "categoryEmergency": "Emergency",
     "categoryOther": "Other"
   },
-
   "budget": {
     "title": "Budget",
     "newEntry": "New Entry",
@@ -454,9 +444,15 @@
     "catMisc": "Miscellaneous",
     "loadingIndicator": "Loading…"
   },
-
   "settings": {
     "title": "Settings",
+    "tabGeneral": "General",
+    "tabMeals": "Meals",
+    "tabBudget": "Budget",
+    "tabShopping": "Shopping",
+    "tabCalendar": "Calendar",
+    "tabAccount": "Account",
+    "tabsAriaLabel": "Settings sections",
     "sectionDesign": "Appearance",
     "sectionShopping": "Shopping",
     "shoppingCategoriesLabel": "Shopping Categories",
@@ -547,7 +543,6 @@
     "currencyHint": "Sets the currency used throughout the budget section.",
     "currencySaved": "Currency saved."
   },
-
   "login": {
     "tagline": "Family planning. Secure. Privacy-friendly. Open source.",
     "usernameLabel": "Username",
@@ -559,7 +554,6 @@
     "tooManyAttempts": "Too many attempts. Please wait a moment.",
     "invalidCredentials": "Invalid credentials."
   },
-
   "install": {
     "title": "Install Oikos",
     "subtitle": "Add to home screen",
@@ -568,11 +562,9 @@
     "installButton": "Install",
     "dismissLabel": "Close"
   },
-
   "modal": {
     "closeLabel": "Close"
   },
-
   "rrule": {
     "freqNone": "No recurrence",
     "freqDaily": "Daily",

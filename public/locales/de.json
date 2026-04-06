@@ -30,7 +30,6 @@
     "confirm": "Bestätigen",
     "undo": "Rückgängig"
   },
-
   "nav": {
     "dashboard": "Übersicht",
     "tasks": "Aufgaben",
@@ -45,7 +44,6 @@
     "navigation": "Navigation",
     "quickActions": "Schnellaktionen"
   },
-
   "dashboard": {
     "title": "Übersicht",
     "greetingMorning": "Guten Morgen, {{name}}",
@@ -81,7 +79,6 @@
     "allDay": "Ganztägig",
     "shoppingMore": "+{{count}} weitere"
   },
-
   "tasks": {
     "title": "Aufgaben",
     "newTask": "Neue Aufgabe",
@@ -149,7 +146,6 @@
     "listView": "Listenansicht",
     "kanbanView": "Kanban-Ansicht"
   },
-
   "shopping": {
     "title": "Einkauf",
     "noLists": "Keine Listen",
@@ -190,7 +186,6 @@
     "catDrugstore": "Drogerie",
     "catMisc": "Sonstiges"
   },
-
   "meals": {
     "title": "Essensplan",
     "noMealPlanned": "Kein Essen geplant",
@@ -239,7 +234,6 @@
     "recipeUrlPlaceholder": "https://…",
     "openRecipe": "Rezept öffnen"
   },
-
   "calendar": {
     "title": "Kalender",
     "newEvent": "Neuer Termin",
@@ -272,7 +266,7 @@
     "locationPlaceholder": "Optional",
     "assignedLabel": "Zugewiesen an",
     "assignedNobody": "- Niemand -",
-    "colorLabel": "Farbe",
+    "colorLabel": "Farbe {{color}}",
     "descriptionLabel": "Beschreibung",
     "descriptionPlaceholder": "Optional…",
     "popupEdit": "Bearbeiten",
@@ -310,10 +304,8 @@
     "dayLongThursday": "Donnerstag",
     "dayLongFriday": "Freitag",
     "dayLongSaturday": "Samstag",
-    "timeSuffix": "Uhr",
-    "colorLabel": "Farbe {{color}}"
+    "timeSuffix": "Uhr"
   },
-
   "notes": {
     "title": "Pinnwand",
     "newNote": "Neue Notiz",
@@ -352,7 +344,6 @@
     "formatQuote": "Zitat",
     "formatDivider": "Trennlinie"
   },
-
   "contacts": {
     "title": "Kontakte",
     "newContact": "Neuer Kontakt",
@@ -406,7 +397,6 @@
     "categoryEmergency": "Notfall",
     "categoryOther": "Sonstiges"
   },
-
   "budget": {
     "title": "Budget",
     "newEntry": "Neuer Eintrag",
@@ -454,9 +444,15 @@
     "catMisc": "Sonstiges",
     "loadingIndicator": "Lade…"
   },
-
   "settings": {
     "title": "Einstellungen",
+    "tabGeneral": "Allgemein",
+    "tabMeals": "Mahlzeiten",
+    "tabBudget": "Budget",
+    "tabShopping": "Einkauf",
+    "tabCalendar": "Kalender",
+    "tabAccount": "Konto",
+    "tabsAriaLabel": "Einstellungsbereiche",
     "sectionDesign": "Design",
     "sectionShopping": "Einkauf",
     "shoppingCategoriesLabel": "Einkaufskategorien",
@@ -547,7 +543,6 @@
     "currencyHint": "Legt die Währung für den gesamten Budget-Bereich fest.",
     "currencySaved": "Währung gespeichert."
   },
-
   "login": {
     "tagline": "Familienplanung. Sicher. Datenschutzfreundlich. Open Source.",
     "usernameLabel": "Benutzername",
@@ -559,20 +554,17 @@
     "tooManyAttempts": "Zu viele Versuche. Bitte warte kurz.",
     "invalidCredentials": "Ungültige Anmeldedaten."
   },
-
   "install": {
     "title": "Oikos installieren",
     "subtitle": "Zur App hinzufügen",
     "iosTip1": "Tippe auf ",
-    "iosTip2": " \u2192 \"Zum Home-Bildschirm\"",
+    "iosTip2": " → \"Zum Home-Bildschirm\"",
     "installButton": "Installieren",
     "dismissLabel": "Schließen"
   },
-
   "modal": {
     "closeLabel": "Schließen"
   },
-
   "rrule": {
     "freqNone": "Keine Wiederholung",
     "freqDaily": "Täglich",

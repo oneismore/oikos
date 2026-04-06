@@ -30,7 +30,6 @@
     "confirm": "Conferma",
     "undo": "Annulla"
   },
-
   "nav": {
     "dashboard": "Panoramica",
     "tasks": "Compiti",
@@ -45,7 +44,6 @@
     "navigation": "Navigazione",
     "quickActions": "Azioni rapide"
   },
-
   "dashboard": {
     "title": "Panoramica",
     "greetingMorning": "Buongiorno, {{name}}",
@@ -81,7 +79,6 @@
     "allDay": "Tutto il giorno",
     "shoppingMore": "+{{count}} altri"
   },
-
   "tasks": {
     "title": "Compiti",
     "newTask": "Nuovo compito",
@@ -149,7 +146,6 @@
     "listView": "Vista elenco",
     "kanbanView": "Vista Kanban"
   },
-
   "shopping": {
     "title": "Spesa",
     "noLists": "Nessuna lista",
@@ -190,7 +186,6 @@
     "catDrugstore": "Drogheria",
     "catMisc": "Varie"
   },
-
   "meals": {
     "title": "Piano pasti",
     "noMealPlanned": "Nessun pasto pianificato",
@@ -239,7 +234,6 @@
     "recipeUrlPlaceholder": "https://…",
     "openRecipe": "Apri ricetta"
   },
-
   "calendar": {
     "title": "Calendario",
     "newEvent": "Nuovo evento",
@@ -272,7 +266,7 @@
     "locationPlaceholder": "Opzionale",
     "assignedLabel": "Assegnato a",
     "assignedNobody": "- Nessuno -",
-    "colorLabel": "Colore",
+    "colorLabel": "Colore {{color}}",
     "descriptionLabel": "Descrizione",
     "descriptionPlaceholder": "Opzionale…",
     "popupEdit": "Modifica",
@@ -310,10 +304,8 @@
     "dayLongThursday": "Giovedì",
     "dayLongFriday": "Venerdì",
     "dayLongSaturday": "Sabato",
-    "timeSuffix": "",
-    "colorLabel": "Colore {{color}}"
+    "timeSuffix": ""
   },
-
   "notes": {
     "title": "Bacheca",
     "newNote": "Nuova nota",
@@ -352,7 +344,6 @@
     "formatQuote": "Citazione",
     "formatDivider": "Divisore"
   },
-
   "contacts": {
     "title": "Contatti",
     "newContact": "Nuovo contatto",
@@ -406,7 +397,6 @@
     "categoryEmergency": "Emergenza",
     "categoryOther": "Altro"
   },
-
   "budget": {
     "title": "Bilancio",
     "newEntry": "Nuova voce",
@@ -454,9 +444,15 @@
     "catMisc": "Varie",
     "loadingIndicator": "Caricamento…"
   },
-
   "settings": {
     "title": "Impostazioni",
+    "tabGeneral": "Generale",
+    "tabMeals": "Pasti",
+    "tabBudget": "Budget",
+    "tabShopping": "Spesa",
+    "tabCalendar": "Calendario",
+    "tabAccount": "Account",
+    "tabsAriaLabel": "Sezioni impostazioni",
     "sectionDesign": "Aspetto",
     "sectionShopping": "Spesa",
     "shoppingCategoriesLabel": "Categorie spesa",
@@ -547,7 +543,6 @@
     "currencyHint": "Imposta la valuta utilizzata in tutta la sezione budget.",
     "currencySaved": "Valuta salvata."
   },
-
   "login": {
     "tagline": "Pianificazione familiare. Sicura. Rispettosa della privacy. Open source.",
     "usernameLabel": "Nome utente",
@@ -559,7 +554,6 @@
     "tooManyAttempts": "Troppi tentativi. Attendi un momento.",
     "invalidCredentials": "Credenziali non valide."
   },
-
   "install": {
     "title": "Installa Oikos",
     "subtitle": "Aggiungi alla schermata home",
@@ -568,7 +562,6 @@
     "installButton": "Installa",
     "dismissLabel": "Chiudi"
   },
-
   "modal": {
     "closeLabel": "Chiudi"
   }
