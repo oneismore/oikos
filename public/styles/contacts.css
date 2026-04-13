@@ -58,12 +58,12 @@
 .contacts-toolbar__search-input {
   width: 100%;
   padding: var(--space-2) var(--space-3) var(--space-2) 36px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-glass-button);
+  border: 1.5px solid var(--glass-border-subtle);
   background-color: var(--color-surface-2);
   color: var(--color-text-primary);
   font-size: var(--text-md);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 36px;
 }
 
@@ -71,6 +71,7 @@
   outline: none;
   border-color: var(--color-accent);
   background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 @media (min-width: 1024px) {

@@ -65,17 +65,18 @@
 .notes-toolbar__search-input {
   width: 100%;
   padding: var(--space-2) var(--space-2) var(--space-2) calc(var(--space-2) * 2 + 16px);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-glass-button);
   background: var(--color-surface);
   color: var(--color-text-primary);
   font-size: var(--text-md);
-  outline-offset: 2px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .notes-toolbar__search-input:focus {
-  outline: 2px solid var(--color-accent);
-  border-color: transparent;
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 @media (min-width: 1024px) {
