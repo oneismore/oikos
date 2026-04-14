@@ -5,7 +5,7 @@
  * Dependencies: none (vanilla JS, Fetch API, Intl API)
  */
 
-const SUPPORTED_LOCALES = ['de', 'en', 'es', 'fr', 'it', 'sv', 'el', 'ru', 'tr', 'zh'];
+const SUPPORTED_LOCALES = ['de', 'en', 'es', 'fr', 'it', 'sv', 'el', 'ru', 'tr', 'zh', 'ja', 'ar', 'hi', 'pt'];
 const DEFAULT_LOCALE = 'de';
 const STORAGE_KEY = 'oikos-locale';
 

@@ -51,3 +51,5 @@ New suggestion? → [Open an issue](https://github.com/ulsklyc/oikos/issues/new?
 | - | Budget: CNY (Chinese Yuan) added to currency list (#42) | v0.16.2 |
 | - | i18n: French (fr), Turkish (tr), Russian (ru), Greek (el), Chinese Simplified (zh) locales | v0.16.3 |
 | - | Budget: TRY (Turkish Lira) and RUB (Russian Ruble) added to currency list | v0.16.3 |
+| - | i18n: Japanese (ja), Arabic (ar), Hindi (hi), Portuguese (pt) locales (567 keys each) | v0.19.0 |
+| - | Budget: AED (UAE Dirham), BRL (Brazilian Real), INR (Indian Rupee), SAR (Saudi Riyal) added to currency list | v0.19.0 |

@@ -18,6 +18,10 @@ const LOCALE_LABELS = {
   ru: 'Русский',
   tr: 'Türkçe',
   zh: '中文',
+  ja: '日本語',
+  ar: 'العربية',
+  hi: 'हिन्दी',
+  pt: 'Português',
 };
 
 class OikosLocalePicker extends HTMLElement {

@@ -12,7 +12,7 @@
  *   API: Immer Netzwerk (kein Caching von Nutzerdaten)
  */
 
-const SHELL_CACHE   = 'oikos-shell-v30';
+const SHELL_CACHE   = 'oikos-shell-v31';
 const PAGES_CACHE   = 'oikos-pages-v28';
 const ASSETS_CACHE  = 'oikos-assets-v27';
 const ALL_CACHES    = [SHELL_CACHE, PAGES_CACHE, ASSETS_CACHE];
@@ -27,6 +27,10 @@ const APP_SHELL = [
   '/rrule-ui.js',
   '/locales/de.json',
   '/locales/en.json',
+  '/locales/ja.json',
+  '/locales/ar.json',
+  '/locales/hi.json',
+  '/locales/pt.json',
   '/sw-register.js',
   '/lucide.min.js',
   '/styles/tokens.css',

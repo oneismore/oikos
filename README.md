@@ -63,7 +63,7 @@
 
 **PWA Native Feel:** Installable on any device, works offline, dark mode, responsive from phone to desktop
 
-**Multilingual:** German, English, Spanish, French, Italian, Swedish, Greek, Russian, Turkish, and Chinese UI with automatic locale detection
+**Multilingual:** German, English, Spanish, French, Italian, Swedish, Greek, Russian, Turkish, Chinese, Japanese, Arabic, Hindi, and Portuguese UI with automatic locale detection
 
 ## Quick Start
 

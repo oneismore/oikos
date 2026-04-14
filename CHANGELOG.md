@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-04-14
+
+### Added
+- i18n: Japanese (ja) locale - full translation with 567 keys; Hiragana/Katakana/Kanji script
+- i18n: Arabic (ar) locale - full translation with 567 keys; RTL-ready text
+- i18n: Hindi (hi) locale - full translation with 567 keys; Devanagari script
+- i18n: Portuguese (pt) locale - full translation with 567 keys; Brazilian Portuguese
+- Budget: AED (UAE Dirham), BRL (Brazilian Real), INR (Indian Rupee), SAR (Saudi Riyal) added to currency list
+- Service Worker: new locale files pre-cached in APP_SHELL for offline support (sw v31)
+
 ## [0.18.2] - 2026-04-14
 
 ### Fixed
