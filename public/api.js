@@ -22,7 +22,7 @@ function getCsrfToken() {
  * @param {RequestInit} options - Fetch-Optionen
  * @returns {Promise<any>} Geparstes JSON oder wirft einen Fehler
  */
-async function apiFetch(path, options = {}) {
+async function apiFetch(path, options = {}, _retried = false) {
   const url = `${API_BASE}${path}`;
 
   const method = options.method ?? 'GET';
@@ -43,6 +43,13 @@ async function apiFetch(path, options = {}) {
     // Session abgelaufen → zur Login-Seite
     window.dispatchEvent(new CustomEvent('auth:expired'));
     throw new Error('Sitzung abgelaufen.');
+  }
+
+  // CSRF-Token-Desync (haeufig nach iOS-PWA-Resume): einmal GET /auth/me
+  // ausfuehren um den CSRF-Cookie zu erneuern, dann den Request wiederholen.
+  if (response.status === 403 && stateChanging && !_retried) {
+    await fetch(`${API_BASE}/auth/me`, { credentials: 'same-origin', cache: 'no-store' });
+    return apiFetch(path, options, true);
   }
 
   const data = await response.json().catch(() => null);

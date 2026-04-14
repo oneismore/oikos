@@ -51,13 +51,20 @@ function csrfMiddleware(req, res, next) {
   const sessionToken  = req.session.csrfToken;
   const expectedLen   = TOKEN_LENGTH * 2; // 64 Hex-Zeichen
 
-  const tokenValid =
-    headerToken.length === expectedLen &&
-    sessionToken.length === expectedLen &&
-    crypto.timingSafeEqual(
-      Buffer.from(headerToken,  'hex'),
-      Buffer.from(sessionToken, 'hex')
-    );
+  let tokenValid = false;
+  try {
+    tokenValid =
+      headerToken.length === expectedLen &&
+      sessionToken.length === expectedLen &&
+      // Nur valides Hex vergleichen (iOS kann Cookies korrumpieren)
+      /^[0-9a-f]+$/i.test(headerToken) &&
+      crypto.timingSafeEqual(
+        Buffer.from(headerToken,  'hex'),
+        Buffer.from(sessionToken, 'hex')
+      );
+  } catch {
+    // Buffer-Fehler bei korruptem Token - tokenValid bleibt false
+  }
 
   if (!tokenValid) {
     return res.status(403).json({ error: 'Ungültiges CSRF-Token.', code: 403 });

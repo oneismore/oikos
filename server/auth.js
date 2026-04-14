@@ -247,6 +247,19 @@ router.get('/me', requireAuth, (req, res) => {
       return res.status(401).json({ error: 'Benutzer nicht gefunden.', code: 401 });
     }
 
+    // CSRF-Token erneuern falls vorhanden (wichtig fuer iOS-PWA-Resume:
+    // iOS kann den CSRF-Cookie verwerfen waehrend die Session-Cookie erhalten bleibt.
+    // /me ist der erste API-Call nach App-Resume, also hier den Cookie wiederherstellen.)
+    if (!req.session.csrfToken) {
+      req.session.csrfToken = generateToken();
+    }
+    res.cookie('csrf-token', req.session.csrfToken, {
+      httpOnly: false,
+      sameSite: 'lax',
+      secure: process.env.SESSION_SECURE !== 'false',
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    });
+
     res.json({ user });
   } catch (err) {
     log.error('/me Fehler:', err);

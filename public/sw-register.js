@@ -12,12 +12,16 @@ if ('serviceWorker' in navigator) {
     });
   });
 
-  // Nahtloses Update: Neuer SW hat skipWaiting() + clients.claim() aufgerufen
-  // → Controller wechselt → Seite neu laden für konsistenten Stand
+  // SW-Update: Auf iOS-PWA fuehrt ein sofortiger Reload bei controllerchange
+  // zu Timing-Problemen (leere Seite, verlorene Cookies). Stattdessen nur
+  // nachladen wenn die Seite gerade nicht mitten im Initialisieren ist.
   let refreshing = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (refreshing) return;
     refreshing = true;
-    window.location.reload();
+    // Kurz warten damit der neue SW vollstaendig aktiviert ist und
+    // clients.claim() abgeschlossen hat, bevor die Seite neu laedt.
+    // Auf iOS-Standalone verhindert das den "leere Seite"-Bug.
+    setTimeout(() => window.location.reload(), 200);
   });
 }
