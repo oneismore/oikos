@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.7] - 2026-04-16
+
+### Fixed
+- iOS PWA: large empty area visible between the bottom navigation bar and the physical screen edge. Root cause: `body::after` (which covers the home indicator safe area) had the same `z-index` as the nav bar (100) but was painted after all child elements by the browser's compositing order, causing it to render on top of the nav's glass background with a mismatched color (`color-mix` vs `var(--glass-bg)`). Fixed by aligning `body::after` to `var(--glass-bg)` and `var(--blur-md)` (identical to the nav) and lowering its `z-index` to `z-nav - 1` so the nav always renders on top in the overlap area.
+- iOS PWA: app zoomed in when the virtual keyboard appeared and remained zoomed after the keyboard was dismissed, causing nav items and other elements to move outside the visible viewport. Added `focusin`/`focusout` listeners in `router.js` that temporarily set `maximum-scale=1` on the viewport meta tag while an `INPUT`, `TEXTAREA`, or `SELECT` is focused (prevents WKWebView auto-zoom), then restore `maximum-scale=5` after a 150 ms delay once the field loses focus (preserves manual zoom for accessibility).
+
 ## [0.20.6] - 2026-04-16
 
 ### Fixed
