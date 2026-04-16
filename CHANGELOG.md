@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.3] - 2026-04-16
+
+### Fixed
+- iOS PWA: two visually distinct color zones at the bottom of the screen (below the bottom navigation bar). The `body::after` pseudo-element that covers the home indicator safe area now matches the bottom nav's appearance exactly - using the same semi-transparent background (`color-mix`) and `backdrop-filter: blur(16px) saturate(180%)` - so the navigation bar blends seamlessly into the bottom edge of the screen.
+
 ## [0.20.2] - 2026-04-16
 
 ### Fixed
