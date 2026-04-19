@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.12] - 2026-04-19
+
+### Fixed
+- Tasks: active filters are now correctly re-applied when navigating away from and back to the Tasks tab. Previously the filter chip appeared active but all tasks were shown, because the initial data fetch in `render()` always called `/tasks` without query parameters, ignoring the persisted `state.filters`. Fixed by building the filter query in `render()` the same way `loadTasks()` does, so the first fetch already respects the current filter state (closes #49)
+
 ## [0.20.11] - 2026-04-19
 
 ### Fixed

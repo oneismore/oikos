@@ -1163,10 +1163,16 @@ export async function render(container, { user }) {
 
   if (window.lucide) window.lucide.createIcons();
 
-  // Daten laden
+  // Daten laden (Filter-State aus vorheriger Session berücksichtigen)
   try {
+    const params = new URLSearchParams();
+    if (state.filters.status)      params.set('status',      state.filters.status);
+    if (state.filters.priority)    params.set('priority',    state.filters.priority);
+    if (state.filters.assigned_to) params.set('assigned_to', state.filters.assigned_to);
+    const query = params.toString() ? `?${params}` : '';
+
     const [tasksData, metaData] = await Promise.all([
-      api.get('/tasks'),
+      api.get(`/tasks${query}`),
       api.get('/tasks/meta/options'),
     ]);
     state.tasks = tasksData.data ?? [];
