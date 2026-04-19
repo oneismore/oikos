@@ -569,10 +569,16 @@
     <h1 data-i18n="hero_title">Oikos</h1>
     <p class="hero-tagline" data-i18n="hero_tagline">The self-hosted family planner</p>
     <p class="hero-desc" data-i18n="hero_desc">Manage your household together. Tasks, shopping, meals, calendar, budget - all in one place. Self-hosted, private, yours.</p>
-    <a href="https://github.com/ulsklyc/oikos" class="hero-cta" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      <span data-i18n="hero_cta">View on GitHub</span>
-    </a>
+    <div style="display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="https://github.com/ulsklyc/oikos" class="hero-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span data-i18n="hero_cta">View on GitHub</span>
+      </a>
+      <a href="install.html" class="hero-cta" style="background:var(--surface);color:var(--text-primary);border:1px solid var(--surface-border);box-shadow:var(--shadow-sm)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span data-i18n="hero_install">Installation Guide</span>
+      </a>
+    </div>
     <div class="hero-badges">
       <span class="badge">MIT License</span>
       <span class="badge">Docker Ready</span>
@@ -773,6 +779,7 @@ cp .env.example .env     <span class="comment"># set SESSION_SECRET and DB_ENCRY
           hero_tagline: 'The self-hosted family planner',
           hero_desc: 'Manage your household together. Tasks, shopping, meals, calendar, budget \u2014 all in one place. Self-hosted, private, yours.',
           hero_cta: 'View on GitHub',
+          hero_install: 'Installation Guide',
           badge_nocloud: 'No Cloud Required',
           features_label: 'Features',
           features_title: 'Everything your household needs',
@@ -809,7 +816,7 @@ cp .env.example .env     <span class="comment"># set SESSION_SECRET and DB_ENCRY
           phil_open_desc: 'MIT licensed. Inspect, modify, extend, contribute. Built in the open for families who care about transparency.',
           setup_label: 'Get Started',
           setup_title: 'Up and running in minutes',
-          setup_note: 'Then open <code>http://localhost:3000</code> and log in. Want to build from source or set up HTTPS? The <a href="https://github.com/ulsklyc/oikos/blob/main/docs/installation.md" target="_blank" rel="noopener">Installation Guide</a> covers all options.',
+          setup_note: 'Then open <code>http://localhost:3000</code> and log in. Want a step-by-step guide, HTTPS setup, or troubleshooting? See the <a href="install.html">Installation Guide</a>.',
           footer_heart: 'Built with care for families who value privacy and simplicity.',
           footer_contrib: 'Contributing'
         },
@@ -819,6 +826,7 @@ cp .env.example .env     <span class="comment"># set SESSION_SECRET and DB_ENCRY
           hero_tagline: 'Der selbstgehostete Familienplaner',
           hero_desc: 'Organisiert euren Haushalt gemeinsam. Aufgaben, Einkauf, Mahlzeiten, Kalender, Budget \u2014 alles an einem Ort. Selbstgehostet, privat, eures.',
           hero_cta: 'Auf GitHub ansehen',
+          hero_install: 'Installationsanleitung',
           badge_nocloud: 'Keine Cloud n\u00f6tig',
           features_label: 'Funktionen',
           features_title: 'Alles, was euer Haushalt braucht',
@@ -855,7 +863,7 @@ cp .env.example .env     <span class="comment"># set SESSION_SECRET and DB_ENCRY
           phil_open_desc: 'MIT-lizenziert. Einsehen, anpassen, erweitern, beitragen. Offen gebaut f\u00fcr Familien, die Transparenz sch\u00e4tzen.',
           setup_label: 'Loslegen',
           setup_title: 'In Minuten einsatzbereit',
-          setup_note: 'Dann <code>http://localhost:3000</code> \u00f6ffnen und einloggen. Build aus dem Quellcode oder HTTPS einrichten? Die <a href="https://github.com/ulsklyc/oikos/blob/main/docs/installation.md" target="_blank" rel="noopener">Installationsanleitung</a> erkl\u00e4rt alle Optionen.',
+          setup_note: 'Dann <code>http://localhost:3000</code> \u00f6ffnen und einloggen. Schritt-f\u00fcr-Schritt-Anleitung, HTTPS oder Hilfe bei Problemen? Zur <a href="install.html">Installationsanleitung</a>.',
           footer_heart: 'Mit Sorgfalt gebaut f\u00fcr Familien, die Privatsph\u00e4re und Einfachheit sch\u00e4tzen.',
           footer_contrib: 'Mitmachen'
         }
