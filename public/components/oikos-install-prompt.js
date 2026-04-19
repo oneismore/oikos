@@ -174,8 +174,8 @@ class OikosInstallPrompt extends HTMLElement {
       .btn-install {
         flex-shrink: 0;
         padding: var(--space-2, 8px) var(--space-4, 16px);
-        background: var(--color-btn-primary, #2554C7);
-        color: #fff;
+        background: var(--color-btn-primary, #4338CA);
+        color: var(--color-text-on-accent, #fff);
         border: none;
         border-radius: var(--radius-sm, 8px);
         font-family: var(--font-sans, system-ui);

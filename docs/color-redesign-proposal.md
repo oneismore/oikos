@@ -1,6 +1,6 @@
 # Oikos — Farbpaletten-Redesign-Vorschlag
 
-**Status:** Implementiert ✅ · **Datum:** 2026-04-19 · **Scope:** `tokens.css`, `reminders.css`, `dashboard.css`, `tasks.css`, `tasks.js`
+**Status:** Implementiert ✅ · **Datum:** 2026-04-19 · **Scope:** `tokens.css`, `reminders.css`, `dashboard.css`, `tasks.css`, `tasks.js`, `glass.css`, `layout.css`, `index.html`, `oikos-install-prompt.js`
 **Bezugsdokumente:** `.interface-design/system.md`, `docs/SPEC.md` (Section „Design System")
 **Hinweis:** Der im Ausgangs-Briefing genannte Pfad `docs/redesign-spec.md` existiert nicht im Repo. Als Ausgangspunkt dienen `system.md` (verbindliche Design-Intention) und der bereits in `tokens.css` umgesetzte Akzent-Wechsel auf `#2563EB`.
 
@@ -426,7 +426,7 @@ Zwei Stellen referenzieren noch den alten Primary `#2563EB`:
 | `oikos-install-prompt.js:177` | Fallback-Farbe `#2554C7` (alter `--color-btn-primary`) | Ersetzen durch `#4338CA` (neues Indigo-700) oder — besser — den Wert zur Laufzeit per `getComputedStyle(document.documentElement).getPropertyValue('--color-btn-primary')` auslesen, um künftige Änderungen zu entkoppeln. |
 | `index.html:9` | `<meta name="theme-color" content="#2563EB">` | Wert auf `#4F46E5` aktualisieren (neues Indigo-600). Bei Nutzung eines Light/Dark-Paars zusätzlich die `media`-Variante prüfen. |
 
-**Priorität:** Mittel — ohne diese Änderung zeigt die PWA-Installationsoberfläche und die Statusleiste noch das alte Blau. Kein funktionaler Fehler, aber visuell inkonsistent.
+**Status:** ✅ Umgesetzt — `index.html` auf `#4F46E5`, `oikos-install-prompt.js` Fallback auf `#4338CA` + `color: var(--color-text-on-accent, #fff)`.
 
 ### 8.2 Dark-Mode-Duplikation entfernen
 
@@ -454,22 +454,25 @@ Vorteil: Eine Zeile Änderung statt zwei. Nachteil: Zwei CSS-Ebenen (private `--
 
 ### 8.3 Glass.css Specular-Token-Konsolidierung
 
-`glass.css` wiederholt dieselben `rgba`-Werte für specular highlights (0.18, 0.22, 0.28, 0.32) und inset shadows dutzende Male. Vorschlag: vier neue Tokens in `tokens.css` im `/* 9. Overlay & Glass */`-Block:
+`glass.css` wiederholt dieselben `rgba`-Werte für specular highlights (0.18, 0.22, 0.28, 0.32) und inset shadows. **Umgesetzt:** 5 neue Tokens in `tokens.css` (Abschnitt `/* d2) Inset-Specular */`):
 
 ```css
---glass-specular-weak:    rgba(255, 255, 255, 0.10);
---glass-specular-medium:  rgba(255, 255, 255, 0.18);
---glass-specular-strong:  rgba(255, 255, 255, 0.30);
---glass-inset-shadow:     inset 0 1px 0 rgba(255, 255, 255, 0.20);
+--glass-inset-soft:     inset 0 1px 0 rgba(255, 255, 255, 0.18);
+--glass-inset-base:     inset 0 1px 0 rgba(255, 255, 255, 0.20);
+--glass-inset-medium:   inset 0 1px 0 rgba(255, 255, 255, 0.22);
+--glass-inset-elevated: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+--glass-inset-strong:   inset 0 1px 0 rgba(255, 255, 255, 0.32);
 ```
 
-`glass.css`, `tasks.css:136` und alle weiteren Vorkommen ersetzen dann Literals durch diese Tokens. Kein visueller Effekt — reiner Wartungsgewinn.
+9 Literale in `glass.css` (Buttons, FAB, Toast, nav-badge, FAB-Keyframes) und 1 in `tasks.css` ersetzt. Nicht tokenisiert: `0.10` (Toast-Border, anderen Kontext), `0.90` (Toggle-Thumb, opak — andere semantische Kategorie).
 
-**Priorität:** Niedrig — als Teil einer allgemeinen `glass.css`-Überarbeitung.
+**Status:** ✅ Umgesetzt.
 
 ### 8.4 Layout.css Print-Block (Minor)
 
-Zeilen 1726–1732 enthalten `#fff`, `#000`, `#ddd` in einem `@media print`-Block. Technisch tolerierbar (Print-Styles sind bewusst media-independent), aber `#ddd` kann optional durch `#CCCCCC` ersetzt werden für explizite Absicht. Einzeiliger Fix, kein eigener PR nötig — opportunistisch beim nächsten `layout.css`-Touch einbauen.
+Zeilen 1738–1745 enthielten `#fff`, `#000`, `#ddd` in einem `@media print`-Block. Ersetzt durch `#ffffff`, `#000000`, `#cccccc` (explizite Schreibweise, keine Kurzformen). Kein visueller Effekt.
+
+**Status:** ✅ Umgesetzt.
 
 ---
 
@@ -482,11 +485,13 @@ Zeilen 1726–1732 enthalten `#fff`, `#000`, `#ddd` in einem `@media print`-Bloc
 | `dashboard.css` | Widget-Customize-Button: `rgba(…)` → `--color-glass*`-Tokens | ✅ |
 | `tasks.js` | Inline-Style Subtask-Checkbox-Icon → CSS-Klasse | ✅ |
 | `tasks.css` | `.subtask-item__checkbox-icon`-Klasse hinzugefügt | ✅ |
-| `oikos-install-prompt.js` | Fallback `#2554C7` | 🔲 §8.1 |
-| `index.html` | `theme-color="#2563EB"` | 🔲 §8.1 |
+| `oikos-install-prompt.js` | Fallback `#2554C7` → `#4338CA`; `#fff` → `var(--color-text-on-accent, #fff)` | ✅ §8.1 |
+| `index.html` | `theme-color="#2563EB"` → `#4F46E5` | ✅ §8.1 |
 | Dark-Mode-Dedup | `@media` + `[data-theme]` kollabieren | 🔲 §8.2 |
-| `glass.css` specular | Werte konsolidieren | 🔲 §8.3 |
-| `layout.css` Print | Minor Literal-Bereinigung | 🔲 §8.4 |
+| `tokens.css` | 5 neue `--glass-inset-*` Tokens (0.18–0.32) | ✅ §8.3 |
+| `glass.css` | 9 specular rgba-Literale → `var(--glass-inset-*)` | ✅ §8.3 |
+| `tasks.css` | 1 specular rgba-Literal → `var(--glass-inset-base)` | ✅ §8.3 |
+| `layout.css` Print | `#fff`→`#ffffff`, `#000`→`#000000`, `#ddd`→`#cccccc` | ✅ §8.4 |
 
 ---
 

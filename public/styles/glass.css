@@ -122,13 +122,13 @@
   border-radius: var(--radius-glass-button);
   box-shadow:
     var(--shadow-sm),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    var(--glass-inset-medium);
 }
 
 .btn--primary:hover {
   box-shadow:
     var(--shadow-md),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    var(--glass-inset-soft);
 }
 
 .btn--secondary {
@@ -150,14 +150,14 @@
 .fab {
   box-shadow:
     var(--shadow-lg),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    var(--glass-inset-elevated),
     inset 0 -1px 0 rgba(0, 0, 0, 0.12);
 }
 
 .fab:hover {
   box-shadow:
     var(--shadow-lg),
-    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    var(--glass-inset-strong),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -252,7 +252,7 @@ textarea.form-input {
   border-radius: var(--radius-glass-card);
   box-shadow:
     var(--glass-shadow-md),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    var(--glass-inset-soft);
 }
 
 /* ================================================================
@@ -273,7 +273,7 @@ textarea.form-input {
  * Immer aktiv (kein backdrop-filter nötig)
  * ================================================================ */
 .nav-badge {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  box-shadow: var(--glass-inset-base);
 }
 
 /* ================================================================
@@ -458,9 +458,9 @@ html.navigating .app-content *::after {
  * 23. FAB — Attention Pulse
  * ================================================================ */
 @keyframes fab-ring-pulse {
-  0%   { box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.28), 0 0 0 0 color-mix(in srgb, var(--module-accent, var(--color-btn-primary)) 50%, transparent); }
-  60%  { box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.28), 0 0 0 10px transparent; }
-  100% { box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.28), 0 0 0 0 transparent; }
+  0%   { box-shadow: var(--shadow-lg), var(--glass-inset-elevated), 0 0 0 0 color-mix(in srgb, var(--module-accent, var(--color-btn-primary)) 50%, transparent); }
+  60%  { box-shadow: var(--shadow-lg), var(--glass-inset-elevated), 0 0 0 10px transparent; }
+  100% { box-shadow: var(--shadow-lg), var(--glass-inset-elevated), 0 0 0 0 transparent; }
 }
 
 .fab {

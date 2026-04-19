@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.16] - 2026-04-19
+
+### Changed
+- Design: PWA `theme-color` meta tag updated from `#2563EB` to `#4F46E5` (Indigo-600) to match the new primary accent; install-prompt CSS fallback updated from `#2554C7` to `#4338CA`, and hardcoded `#fff` replaced with `var(--color-text-on-accent, #fff)`
+- Design: five new `--glass-inset-*` tokens added to `tokens.css` (`--glass-inset-soft` 0.18, `--glass-inset-base` 0.20, `--glass-inset-medium` 0.22, `--glass-inset-elevated` 0.28, `--glass-inset-strong` 0.32); ten hardcoded `inset 0 1px 0 rgba(255,255,255,…)` literals in `glass.css` and `tasks.css` replaced with the corresponding token references — no visual change
+- Design: `@media print` block in `layout.css` normalised from CSS shorthand hex (`#fff`, `#000`, `#ddd`) to explicit six-digit notation (`#ffffff`, `#000000`, `#cccccc`) for consistency
+
 ## [0.20.15] - 2026-04-19
 
 ### Changed

@@ -133,7 +133,7 @@
     backdrop-filter: var(--blur-xs);
     -webkit-backdrop-filter: var(--blur-xs);
     border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+    box-shadow: var(--glass-inset-base);
   }
 }
 

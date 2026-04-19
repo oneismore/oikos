@@ -1736,13 +1736,13 @@
   }
 
   body {
-    background: #fff;
-    color: #000;
+    background: #ffffff;
+    color: #000000;
   }
 
   .card {
     box-shadow: none;
-    border: 1px solid #ddd;
+    border: 1px solid #cccccc;
     break-inside: avoid;
   }
 
