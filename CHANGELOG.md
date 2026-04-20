@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.17] - 2026-04-20
+
+### Changed
+- Design: dark-mode token architecture refactored to private-variable indirection (`--_name`) in `tokens.css` — all tokens with dark-mode overrides now have a private `--_token` variant that holds the actual value, while public tokens (`--color-*`, `--module-*`, `--glass-*` etc.) are stable `var(--_token)` references. Both dark blocks (`@media prefers-color-scheme: dark` and `[data-theme="dark"]`) now only override the compact private tokens; the public API never needs to be touched again for dark-mode changes. The redundant explicit `--color-surface-2` override was removed from both dark blocks (it is already correctly derived via `var(--neutral-50)`). No visual change.
+
 ## [0.20.16] - 2026-04-19
 
 ### Changed

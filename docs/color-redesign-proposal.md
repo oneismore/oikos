@@ -452,6 +452,8 @@ Vorteil: Eine Zeile Änderung statt zwei. Nachteil: Zwei CSS-Ebenen (private `--
 
 **Priorität:** Niedrig — wartungstechnisch sinnvoll, kein UX-Impact. Als eigener PR.
 
+**Status:** ✅ Umgesetzt — Private-Token-Indirektion (`--_name`) in `tokens.css`. Beide Dark-Blöcke überschreiben nur noch private Tokens; öffentliche API (`--color-*`, `--module-*` etc.) ist stabil und muss bei zukünftigen Dark-Mode-Änderungen nicht mehr doppelt angepasst werden.
+
 ### 8.3 Glass.css Specular-Token-Konsolidierung
 
 `glass.css` wiederholt dieselben `rgba`-Werte für specular highlights (0.18, 0.22, 0.28, 0.32) und inset shadows. **Umgesetzt:** 5 neue Tokens in `tokens.css` (Abschnitt `/* d2) Inset-Specular */`):
@@ -487,7 +489,7 @@ Zeilen 1738–1745 enthielten `#fff`, `#000`, `#ddd` in einem `@media print`-Blo
 | `tasks.css` | `.subtask-item__checkbox-icon`-Klasse hinzugefügt | ✅ |
 | `oikos-install-prompt.js` | Fallback `#2554C7` → `#4338CA`; `#fff` → `var(--color-text-on-accent, #fff)` | ✅ §8.1 |
 | `index.html` | `theme-color="#2563EB"` → `#4F46E5` | ✅ §8.1 |
-| Dark-Mode-Dedup | `@media` + `[data-theme]` kollabieren | 🔲 §8.2 |
+| Dark-Mode-Dedup | `@media` + `[data-theme]` kollabieren auf private `--_` Tokens | ✅ §8.2 |
 | `tokens.css` | 5 neue `--glass-inset-*` Tokens (0.18–0.32) | ✅ §8.3 |
 | `glass.css` | 9 specular rgba-Literale → `var(--glass-inset-*)` | ✅ §8.3 |
 | `tasks.css` | 1 specular rgba-Literal → `var(--glass-inset-base)` | ✅ §8.3 |
